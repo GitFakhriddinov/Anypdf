@@ -1,0 +1,335 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f0f0f0; /* Yumshoq kulrang */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #005f73; /* Teran ko'k */
+    color: #ffffff; /* Oq */
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.4em;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.book {
+    border: 1px solid #bdbdbd; /* Yumshoq kulrang */
+    transition: transform 0.2s ease;
+    border-radius: 10px; /* Chekkalarni yumaloqlashtirish */
+    padding: 20px;
+    width: 300px;
+    background-color: #ffffff; /* Oq */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Yengil soyalar */
+}
+
+.book img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px; /* Rasm chekkalarini yumaloqlashtirish */
+}
+
+.book h2 {
+    color: #005f73; /* Teran ko'k */
+    font-size: 1.5em;
+}
+
+.book .price {
+    color: #333;
+    font-weight: bold;
+}
+
+.book p {
+    text-align: left;
+}
+
+.book:hover {
+    transform: scale(1.03); /* Subtle scale */
+}
+
+.buy-link, .book a {
+    display: inline-block;
+    background-color: #00b4d8; /* Yorqin ko'k */
+    color: #ffffff; /* Oq */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px; /* Chekkalarni yumaloqlashtirish */
+    margin-top: 10px;
+}
+
+.buy-link:hover, .book a:hover {
+    background-color: #ff0000; /* Change color to red on hover */
+}
+
+footer {
+    background-color: #005f73; /* Teran ko'k */
+    color: #ffffff; /* Oq */
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+/* Datepicker Umumiy Stil */
+.ui-datepicker {
+    width: auto; /* Datepicker kengligi */
+    background: #ffffff; /* Oq fon */
+    border: 1px solid #aaa; /* Chegaraning rangi */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soyani qo'shish */
+}
+
+/* Datepicker Sarlavhasi */
+.ui-datepicker .ui-datepicker-header {
+    background-color: #005f73; /* Sarlavha fonining rangi */
+    color: #ffffff; /* Sarlavha matnining rangi */
+    border-bottom: 1px solid #005f73; /* Chegaraning rangi */
+    border-radius: 5px;
+    font-weight: bold; /* Sarlavha matnining qalinligi */
+    line-height: 1.8em; /* Chiziq balandligi */
+}
+
+/* O'tgan va Kelajakdagi Kunlar */
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    cursor: pointer; /* Kursor ko'rinishi */
+}
+
+/* Hafta Kunlari */
+.ui-datepicker th {
+    color: #555555; /* Hafta kunlarining matn rangi */
+    padding: 5px 0; /* Yuqori va pastki padding */
+    font-weight: normal; /* Matn qalinligi */
+}
+
+/* Kunlar */
+.ui-datepicker td {
+    padding: 5px; /* Padding atrofida */
+}
+
+/* Bugungi Kun */
+.ui-datepicker .ui-datepicker-today {
+    background-color: #f0e68c; /* Bugungi kun uchun fon rangi */
+}
+
+/* Tanlangan Kun */
+.ui-datepicker .ui-state-active, .ui-datepicker .ui-state-highlight {
+    background-color: #66cc99; /* Tanlangan kun fonining rangi */
+    color: #ffffff; /* Tanlangan kun matnining rangi */
+}
+
+/* Kunlar ustidan kursorni olib o'tganda */
+.ui-datepicker td:hover {
+    background-color: #f0f0f0; /* Fon rangi */
+    cursor: pointer; /* Kursor ko'rinishi */
+}
+
+/* Disabllangan kunlar */
+.ui-datepicker .ui-state-disabled {
+    color: #cccccc; /* Matn rangi */
+    background-color: #f9f9f9; /* Fon rangi */
+}
+/* Dialog Umumiy Stili */
+.ui-dialog {
+    border: 1px solid #007bff; /* Chegara rangi */
+    background: #ffffff; /* Orqa fon */
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1); /* Soyali effekt */
+}
+
+/* Dialog Sarlavhasi */
+.ui-dialog .ui-dialog-titlebar {
+    background-color: #007bff; /* Sarlavha fonining rangi */
+    color: #ffffff; /* Sarlavha matnining rangi */
+    border-bottom: 2px solid #0056b3;
+}
+
+/* Dialog Sarlavhasidagi "Yopish" Tugmasi */
+.ui-dialog .ui-dialog-titlebar-close {
+    background-color: #007bff;
+    border-radius: 0;
+    border: none;
+    margin-top: -10px;
+}
+
+.ui-dialog .ui-dialog-titlebar-close:hover {
+    background-color: #0056b3;
+}
+
+.ui-dialog .ui-dialog-titlebar-close:before {
+    content: "✕"; /* X belgisi */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.ui-dialog .ui-dialog-content {
+    font-size: 16px; /* Matnning o'lchami */
+    color: #333; /* Matn rangi */
+    line-height: 1.5; /* Qatorlar orasidagi masofa */
+    margin-top: 20px; /* Yuqori chegaradan masofa */
+}
+
+.ui-dialog-titlebar-close {
+    display: none; /* "X" tugmasini yashirish */
+}
+#open-dialog-btn {
+    background-color: #007bff; /* Tugma fonining rangi */
+    color: #ffffff; /* Tugma matnining rangi */
+    padding: 10px 20px; /* Ichki padding */
+    border: none; /* Chegara yo'q */
+    border-radius: 5px; /* Chekkalarni yumaloqlashtirish */
+    font-size: 16px; /* Matn o'lchami */
+    cursor: pointer; /* Kursorni o'zgartirish */
+    transition: background-color 0.3s ease; /* Rang o'zgarishini animatsiyasi */
+}
+
+#open-dialog-btn:hover {
+    background-color: #0056b3; /* Tugma fonining rangi kursorni ustiga olib kelganda */
+    color: #ffffff; /* Tugma matnining rangi */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Tugma ustiga soyali effekt qo'shish */
+}
+
+#slider-range {
+    margin: 20px 0;
+}
+
+/* Slider Umumiy Stili */
+.ui-slider {
+    width: 40%; /* Slider kengligi */
+    height: 8px; /* Slider balandligi */
+    border-radius: 4px; /* Slider'ning chekkalarini yumaloqlashtirish */
+    background: #dcdcdc; /* Slider fonining rangi */
+    border: 1px solid #cfcfcf; /* Slider chegarasining rangi */
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.2); /* Ichkariga qaragan soyali effekt */
+    margin: 20px auto; /* Slider'ni markazlash */
+    position: relative;
+}
+
+/* Slider Tutqichi (Handle) */
+.ui-slider .ui-slider-handle {
+    width: 20px; /* Tutqichning kengligi */
+    height: 20px; /* Tutqichning balandligi */
+    border-radius: 50%; /* Tutqichni to‘liq yumaloqlashtirish */
+    background: #5cb85c; /* Tutqichning fon rangi */
+    border: 2px solid #4cae4c; /* Tutqich chegarasining rangi */
+    top: -8px; /* Tutqichni vertikal markazlash */
+    cursor: pointer; /* Tutqich ustiga kursor kelganda ko‘rsatiladigan kursor turi */
+    position: absolute;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4); /* Tutqichga soyali effekt */
+    outline: none; /* Kontur chizig'ini olib tashlash */
+}
+
+/* Slider Izi (Range) */
+.ui-slider .ui-slider-range {
+    background: #5cb85c; /* Izning fon rangi */
+    border-radius: 4px; /* Iz chekkalarini yumaloqlashtirish */
+    position: absolute;
+    top: 0; /* Izni tepaga joylashtirish */
+}
+
+/* Slider Izi Uchun Qo'shimcha Stil */
+.ui-slider.ui-slider-horizontal .ui-slider-range {
+    height: 100%; /* Izni Slider balandligi bilan bir xil qilish */
+}
+.price-slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    margin: auto;
+}
+
+/* Tabs Stili */
+#tabs {
+    width: 100%;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Tabs Sarlavhalari */
+#tabs ul {
+    margin: 0;
+    padding: 0;
+    background: #007bff;
+}
+
+#tabs li {
+    list-style: none;
+    display: inline-block;
+}
+
+#tabs li a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+#tabs li a:hover {
+    background: #0056b3;
+}
+
+/* Tabs Kontent Stili */
+#tabs div {
+    padding: 20px;
+    background: #fff;
+    border-top: none;
+}
+
+/* Qo'shimcha Tabs Kontent Stili */
+#tabs-1, #tabs-2, #tabs-3 {
+    border: 1px solid #007bff;
+    border-top: none;
+}
+
+
+/* Faol Tab uchun Stil */
+#tabs ul li.ui-tabs-active a {
+    background-color: #ffffff; /* Faol tabning fon rangi */
+    color: rgb(0, 0, 0); /* Faol tabning matn rangi */
+    border-bottom: 0 solid white; /* Faol tab ostidagi chegarani olib tashlash uchun */
+}
+
+#tabs ul li a {
+    background-color: #007bff; /* Boshqa tablarning fon rangi */
+    color: #ffffff; /* Boshqa tablarning matn rangi */
+    padding: 10px; /* Padding */
+    border-radius: 5px ; /* Yuqori chekkalarni yumaloqlashtirish */
+    border: 0 solid #ccc; /* Chegarani belgilash */
+    border-bottom: none; /* Tablar orasidagi ajralishni yaxshilash */
+    box-shadow: 0 -1px 1px rgba(0,0,0,0.1); /* Pastga qarab soyali effekt */
+}
+
+/* Tablar konteyneri uchun qo'shimcha stil */
+#tabs {
+    border: 0 solid #ccc; /* Konteyner uchun chegarani belgilash */
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1); /* Soyali effekt */
+    padding: 10px; /* Ichki chegaralar */
+    background-color: white; /* Kontentning fon rangi */
+}
+
+#tabs ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Ro'yxat belgilarini olib tashlash */
+}
+
+#tabs ul li {
+    display: inline-block; /* Tablarni yonma-yon joylashtirish */
+    margin-right: -4px; /* Tablar orasidagi ajralishni tuzatish */
+}

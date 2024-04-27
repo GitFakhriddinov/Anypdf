@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+	<link rel="icon" href="icon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <title>PDF-library | Onlayn Kutubxona</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script>
+        $(document).ready(function(){
+    // Datepicker'ni sozlash
+    $('#filter-date').datepicker({
+        dateFormat: 'yy-mm-dd', // Formatni sozlash
+        onSelect: function(dateText) {
+            // Filtrlash funksiyasi
+            $('.book').hide().filter(function() {
+                return $(this).data('publish-date') === dateText;
+            }).show();
+        }
+    });
+    // Boshlang'ich holatda barcha kitoblarni ko'rsatish
+    $('.book').show();
+}); 
+    </script>
+    <script>
+        $(function() {
+            var minPrice = 5000, maxPrice = 100000; // Minimal va maksimal narxlar
+            $("#slider-range").slider({
+                range: true,
+                min: minPrice,
+                max: maxPrice,
+                values: [minPrice, maxPrice],
+                slide: function(event, ui) {
+                    $("#amount span").first().text(ui.values[0] + "so'm");
+                    $("#amount span").last().text(ui.values[1] + "so'm");
+                    $(".book").hide().filter(function() {
+                        var price = parseInt($(this).data("price"), 10);
+                        return price >= ui.values[0] && price <= ui.values[1];
+                    }).show();
+                }
+            });
+            $("#amount span").first().text(minPrice + "so'm");
+            $("#amount span").last().text(maxPrice + "so'm");
+        });
+        </script>
+
+    <script>
+                $(function() {
+                    $("#tabs").tabs({
+                    active: 0 // Birinchi tabni faol qiladi
+                    });
+                });
+            </script>
+            <script>
+                $(document).ready(function() {
+            $("#dialog").dialog({
+                autoOpen: false,
+                modal: true,
+                title: "Feedback",
+                width: 400,
+                buttons: {
+                    "Bekor qilish": function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+            $("#open-dialog-btn").click(function() {
+                $("#dialog").dialog("open");
+            });
+
+            $("#feedback-form").on("submit", function(event) {
+                event.preventDefault(); // Form yuborilishini to'xtatadi.
+                var message = $("#user-message").val(); // Textarea dan matn olish.
+                
+                $.ajax({
+                    type: "POST",
+                    url: "server_endpoint.php", // Serverdagi qabul qiluvchi manzil
+                    data: { message: message },
+                    success: function(response) {
+                        alert("Xabar " + response);
+                        $("#dialog").dialog("close"); // Dialogni yopish.
+                    },
+                    error: function() {
+                        alert("Xabar yuborishda xato ro'y berdi.");
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1>PDF-library | Onlayn Kutubxona</h1>
+    </header>
+    <main>
+
+<div>
+    <label for="filter-date">Chiqarilgan sana bo'yicha filtrlash:</label>
+    <input type="text" id="filter-date" placeholder="YYYY-MM-DD">
+</div>
+<div class="price-slider-container">
+    <div class="price-labels">
+        <p id="amount">Narx : <span>5000 so'm</span> - <span>100 000 so'm</span></p>
+    </div>
+    <div id="slider-range" class="price-slider"></div>
+</div>
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Eng ko'p sotilgan</a></li>
+        <li><a href="#tabs-2">Badiiy janr</a></li>
+        <li><a href="#tabs-3">Ilmiy janr</a></li>
+    </ul>
+    <div id="tabs-1">
+        
+        <section class="books">
+            <article class="book" data-publish-date="2024-03-29" data-price="59900">
+                <img src="1984.jpg" alt="1984 Afishasi">
+                <h2>1984 - J.Oruell</h2>
+                <p class="price">Do'konda narxi: 59 900 so'm</p>
+                <p class="date">Tizimga qo'shilgan sanasi: 2024-03-29</p>
+                <p>George Orwellning ushbu romani birinchi bora oʻzbek tiliga tarjima qilinib kitobxonlar eʼtiboriga etkazilmokda. “1984” romani “BBC talkinidagi eng yaxshi 200 ta kitob” ruyhatida sakkizinchi urinni, Newsweek tegishli insoniyat tarixidagi eng yaxshi kitoblar reytingida 2-o'rinni egallaghan. 2017 yilda ushbu kitob AQShda eng ko'p sotilgan kitob hhisoblanadi. Asarning bunchalar shuhrat kozonishiga sabalarni kitobni ukish mobainida bilib olishingiz mumkin.</p>
+                <a href="https://e-library.namdu.uz/Namangan%20Davlat%20Universiteti%20professor%20va%20o'qituvchilarining%20adabiyotlari/%D0%8E%D2%9B%D0%B8%D1%82%D1%83%D0%B2%D1%87%D0%B8%D0%BB%D0%B0%D1%80%20%D1%82%D0%BE%D0%BC%D0%BE%D0%BD%D0%B8%D0%B4%D0%B0%D0%BD%20%D0%B1%D0%B5%D1%80%D0%B8%D0%BB%D0%B3%D0%B0%D0%BD%20%D0%B0%D0%B4%D0%B0%D0%B1%D0%B8%D1%91%D1%82%D0%BB%D0%B0%D1%80/176%201984.%20%D0%96%D0%BE%D1%80%D0%B6%20%D0%9E%D1%80%D1%83%D0%B5%D0%BB%D0%BB.pdf" >PDF Ochish</a>
+                <a href="https://asaxiy.uz/uz/product/zhorzh-oruell-1984-yangi-nashr" target="_blank" class="buy-link">Sotib Olish</a>
+            </article>
+
+            <article class="book" data-publish-date="2003-02-03" data-price="64900">
+                <img src="raqamli qala.jpg" alt="raqamli qala Afishasi">
+                <h2>Raqamli qal'a - D.Braun</h2>
+                <p class="price">Do'konda narxi: 64 900 so'm</p>
+                <p class="date">Tizimga qo'shilgan sanasi: 2003-02-03</p>
+                <p>Asarda hisoblash havfsizlik, vatan havfsizligi yulida ishlaidigan jasur shahs hayoti, ular urgangan havf masalalari kutarilgan. Ush asarda ham vatanparvarlik, ham ehtirosli sevgi, ham qiziqarli ma'lumotlar, ham sizni o'z dunyosiga sayohat qiladigan azhoyib story topasiz. Asar voqealari AQSh, Spain, Japan kabi joylar o'tishi, voqeararning tez va kutilmagan rivozhi sizni o'ziga maftun qiladi.</p>
+                <a href="https://e-library.namdu.uz/Namangan%20Davlat%20Universiteti%20professor%20va%20o'qituvchilarining%20adabiyotlari/%D0%8E%D2%9B%D0%B8%D1%82%D1%83%D0%B2%D1%87%D0%B8%D0%BB%D0%B0%D1%80%20%D1%82%D0%BE%D0%BC%D0%BE%D0%BD%D0%B8%D0%B4%D0%B0%D0%BD%20%D0%B1%D0%B5%D1%80%D0%B8%D0%BB%D0%B3%D0%B0%D0%BD%20%D0%B0%D0%B4%D0%B0%D0%B1%D0%B8%D1%91%D1%82%D0%BB%D0%B0%D1%80/Den_Braun_Raqamli_qala_%5B@iqtisodchi_kutubxonasi%5D.pdf" >PDF Ochish</a>
+                <a href="https://asaxiy.uz/product/dfadfadfadfadfadfadfaden-braun-raqamli-qala-18-yumshoq-muqova-bestseller" target="_blank" class="buy-link">Sotib Olish</a>
+            </article>
+
+            <article class="book" data-publish-date="2003-11-08" data-price="49000">
+                <img src="choqintirgan ota.jpg" alt="cho'qintirgan ota Afishasi">
+                <h2>Cho'qintirgan ota - M.Pyuzo</h2>
+                <p class="price">Do'konda narxi: 49 000 so'm</p>
+                <p class="date">Tizimga qo'shilgan sanasi: 2003-11-08</p>
+                <p>Mario Pyuzoni mashhur qilgan va adabiyot sahnasida uning nomini ko‘klarga ko‘tarishga sabab bo‘lgan asar, shubhasiz, "Cho‘qintirgan ota yoxud mafiya sardori" asaridir. Bu asar million yillardan beri odamlar o‘rtasida davom etib kelayotgan illatlar, bir-birini ko‘rolmaslik, cheksiz boylikka bo‘lgan hirs, adovat kabilarni ro‘y-rost ifodalab bergani, shuningdek, amerikalik va sitsiliyalik mafiyachilarning kirdikorlarini to‘la-to‘kis ochib bergani bilan dunyo miqyosida ommalashib ketdi.Asar badiiy to‘qimalarga boy bo‘lsa-da, kitobxonni ortidan ergashtiradi.</p>
+                <a href="http://ferlibrary.uz/f/choqintirgan_ota15.pdf" >PDF Ochish</a>
+                <a href="https://asaxiy.uz/uz/product/chuqintirgan-ota-yaa" target="_blank" class="buy-link">Sotib Olish</a>
+            </article>
+
+            <article class="book" data-publish-date="2001-09-11" data-price="39000">
+                <img src="yolgizlikning yuz yili.jpg" alt="yolgizlikning yuz yiliAfishasi">
+                <h2>Yolg'izlikning yuz yili - G.G.Markes</h2>
+                <p class="price">Do'konda narxi: 39 000 so'm</p>
+                <p class="date">Tizimga qo'shilgan sanasi: 2001-09-11</p>
+                <p>Kitobxon nazarida avval boshdan jannatmonand yurt sifatida tasavvur uyg‘otadigan Makondo fuqarolari bora-bora boshqacha hayot tarzi bilan yashashni xohlab qoladilar: ulargaendi o‘zlari makon tutgan yer torlik qiladi, ozodlik, hurlik istab qoladi qalblari.</p>
+                <a href="https://library.navoiy-uni.uz/files/%D0%B3%D0%B0%D1%80%D1%81%D0%B8%D0%B0%20%D0%B3.%D0%BC.%20%D1%91%D0%BB%D0%B3%D0%B8%D0%B7%D0%BB%D0%B8%D0%BA%D0%BD%D0%B8%D0%BD%D0%B3%20%D1%8E%D0%B7%20%D0%B9%D0%B8%D0%BB%D0%B8.pdf" >PDF Ochish</a>
+                <a href="https://asaxiy.uz/uz/product/gabriel-garsia-markes-yolgizlikning-yuz-jili" target="_blank" class="buy-link">Sotib Olish</a>
+            </article>
+        </section>
+    </div>
+    <div id="tabs-2">
+        <section class="books">
+            <article class="book" data-publish-date="2024-03-29" data-price="59900">
+                <img src="1984.jpg" alt="1984 Afishasi">
+                <h2>1984 - J.Oruell</h2>
+                <p class="price">Do'konda narxi: 59 900 so'm</p>
+                <p class="date">Tizimga qo'shilgan sanasi: 2024-03-29</p>
+                <p>George Orwellning ushbu romani birinchi bora oʻzbek tiliga tarjima qilinib kitobxonlar eʼtiboriga etkazilmokda. “1984” romani “BBC talkinidagi eng yaxshi 200 ta kitob” ruyhatida sakkizinchi urinni, Newsweek tegishli insoniyat tarixidagi eng yaxshi kitoblar reytingida 2-o'rinni egallaghan. 2017 yilda ushbu kitob AQShda eng ko'p sotilgan kitob hhisoblanadi. Asarning bunchalar shuhrat kozonishiga sabalarni kitobni ukish mobainida bilib olishingiz mumkin.</p>
+                <a href="https://e-library.namdu.uz/Namangan%20Davlat%20Universiteti%20professor%20va%20o'qituvchilarining%20adabiyotlari/%D0%8E%D2%9B%D0%B8%D1%82%D1%83%D0%B2%D1%87%D0%B8%D0%BB%D0%B0%D1%80%20%D1%82%D0%BE%D0%BC%D0%BE%D0%BD%D0%B8%D0%B4%D0%B0%D0%BD%20%D0%B1%D0%B5%D1%80%D0%B8%D0%BB%D0%B3%D0%B0%D0%BD%20%D0%B0%D0%B4%D0%B0%D0%B1%D0%B8%D1%91%D1%82%D0%BB%D0%B0%D1%80/176%201984.%20%D0%96%D0%BE%D1%80%D0%B6%20%D0%9E%D1%80%D1%83%D0%B5%D0%BB%D0%BB.pdf" >PDF Ochish</a>
+                <a href="https://asaxiy.uz/uz/product/zhorzh-oruell-1984-yangi-nashr" target="_blank" class="buy-link">Sotib Olish</a>
+            </article>
+
+            <article class="book" data-publish-date="2003-02-03" data-price="64900">
+                <img src="raqamli qala.jpg" alt="raqamli qala Afishasi">
+                <h2>Raqamli qal'a - D.Braun</h2>
+                <p class="price">Do'konda narxi: 64 900 so'm</p>
+                <p class="date">Tizimga qo'shilgan sanasi: 2003-02-03</p>
+                <p>Asarda hisoblash havfsizlik, vatan havfsizligi yulida ishlaidigan jasur shahs hayoti, ular urgangan havf masalalari kutarilgan. Ush asarda ham vatanparvarlik, ham ehtirosli sevgi, ham qiziqarli ma'lumotlar, ham sizni o'z dunyosiga sayohat qiladigan azhoyib story topasiz. Asar voqealari AQSh, Spain, Japan kabi joylar o'tishi, voqeararning tez va kutilmagan rivozhi sizni o'ziga maftun qiladi.</p>
+                <a href="https://e-library.namdu.uz/Namangan%20Davlat%20Universiteti%20professor%20va%20o'qituvchilarining%20adabiyotlari/%D0%8E%D2%9B%D0%B8%D1%82%D1%83%D0%B2%D1%87%D0%B8%D0%BB%D0%B0%D1%80%20%D1%82%D0%BE%D0%BC%D0%BE%D0%BD%D0%B8%D0%B4%D0%B0%D0%BD%20%D0%B1%D0%B5%D1%80%D0%B8%D0%BB%D0%B3%D0%B0%D0%BD%20%D0%B0%D0%B4%D0%B0%D0%B1%D0%B8%D1%91%D1%82%D0%BB%D0%B0%D1%80/Den_Braun_Raqamli_qala_%5B@iqtisodchi_kutubxonasi%5D.pdf">PDF Ochish</a>
+                <a href="https://asaxiy.uz/product/dfadfadfadfadfadfadfaden-braun-raqamli-qala-18-yumshoq-muqova-bestseller" target="_blank" class="buy-link">Sotib Olish</a>
+            </article>
+            
+            <article class="book" data-publish-date="2024-01-02" data-price="25000">
+                <img src="vavilonlik.jpg" alt="Vavilonlik eng boy odam yili Afishasi">
+                <h2>Vavilonlik eng boy odam - J.S.Kleyson</h2>
+                <p class="price">Do'konda narxi: 25 000 so'm</p>
+                <p class="date">Tizimga qo'shilgan sanasi: 2024-01-02</p>
+                <p>Қашшоқлик нима? Но­чор яшашнинг айбдори ким? "Пулни топиш жуда қийин, уни билиб сарфлаш ҳаммасидан ҳам қийин” деган халқ ҳикматини қандай тушунасиз? Фаровонликка эришиш­нинг порлоқ йўли борми? АҚШлик ёзувчи Жорж Самуэл Клейсон қаламига мансуб "Вавилонлик бой” асарида ана шу саволларга жавоб изланади. 1926 йил­да чоп этилган ушбу асар молиявий омадга эришиш усулларини ўргатувчи памфлетлар сериясидан ўрин олган китоб бўлиб, у банклар ва суғурта компаниялари орасида жуда тез тарқалиб, миллионлаб ўқувчиларнинг олқишига сазовор бўлган. Айтиш­ларича, ушбу китобни барча миллионерлар ўқиб чиқишган экан.</p>
+                <a href="http://anyflip.com/pohxw/tvkk#google_vignette">PDF Ochish</a>
+                <a href="https://asaxiy.uz/uz/product/zhorzh-samuel-klejson-vavilonlik-eng-boj-odam" target="_blank" class="buy-link">Sotib Olish</a>
+            </article>
+
+            <article class="book" data-publish-date="2003-11-08" data-price="49000">
+                <img src="choqintirgan ota.jpg" alt="cho'qintirgan ota Afishasi">
+                <h2>Cho'qintirgan ota - M.Pyuzo</h2>
+                <p class="price">Do'konda narxi: 49 000 so'm</p>
+                <p class="date">Tizimga qo'shilgan sanasi: 2003-11-08</p>
+                <p>Mario Pyuzoni mashhur qilgan va adabiyot sahnasida uning nomini ko‘klarga ko‘tarishga sabab bo‘lgan asar, shubhasiz, "Cho‘qintirgan ota yoxud mafiya sardori" asaridir. Bu asar million yillardan beri odamlar o‘rtasida davom etib kelayotgan illatlar, bir-birini ko‘rolmaslik, cheksiz boylikka bo‘lgan hirs, adovat kabilarni ro‘y-rost ifodalab bergani, shuningdek, amerikalik va sitsiliyalik mafiyachilarning kirdikorlarini to‘la-to‘kis ochib bergani bilan dunyo miqyosida ommalashib ketdi.Asar badiiy to‘qimalarga boy bo‘lsa-da, kitobxonni ortidan ergashtiradi.</p>
+                <a href="http://ferlibrary.uz/f/choqintirgan_ota15.pdf">PDF Ochish</a>
+                <a href="https://asaxiy.uz/uz/product/chuqintirgan-ota-yaa" target="_blank" class="buy-link">Sotib Olish</a>
+            </article>
+
+            <article class="book" data-publish-date="2001-09-11" data-price="39000">
+                <img src="yolgizlikning yuz yili.jpg" alt="yolgizlikning yuz yiliAfishasi">
+                <h2>Yolg'izlikning yuz yili - G.G.Markes</h2>
+                <p class="price">Do'konda narxi: 39 000 so'm</p>
+                <p class="date">Tizimga qo'shilgan sanasi: 2001-09-11</p>
+                <p>Kitobxon nazarida avval boshdan jannatmonand yurt sifatida tasavvur uyg‘otadigan Makondo fuqarolari bora-bora boshqacha hayot tarzi bilan yashashni xohlab qoladilar: ulargaendi o‘zlari makon tutgan yer torlik qiladi, ozodlik, hurlik istab qoladi qalblari.</p>
+                <a href="https://library.navoiy-uni.uz/files/%D0%B3%D0%B0%D1%80%D1%81%D0%B8%D0%B0%20%D0%B3.%D0%BC.%20%D1%91%D0%BB%D0%B3%D0%B8%D0%B7%D0%BB%D0%B8%D0%BA%D0%BD%D0%B8%D0%BD%D0%B3%20%D1%8E%D0%B7%20%D0%B9%D0%B8%D0%BB%D0%B8.pdf">PDF Ochish</a>
+                <a href="https://asaxiy.uz/uz/product/gabriel-garsia-markes-yolgizlikning-yuz-jili" target="_blank" class="buy-link">Sotib Olish</a>
+            </article>
+
+        </section>
+
+    </div>
+    <div id="tabs-3">
+        <section class="books">
+            <article class="book" data-publish-date="2023-03-13" data-price="89000">
+                <img src="tib qonunlari.jpg" alt="tib qonunlari Afishasi">
+                <h2>Tib qonunlari - Ibn Sino</h2>
+                <p class="price">Do'konda narxi: 89 000 so'm</p>
+                <p class="date">Tizimga qo'shilgan sanasi: 2023-03-13</p>
+                <p>Ibn Sino „Tib qonunlari“ni yozishda yunon tabiblaridan Gippokrat, Dioskorid, Galen, Oribaziy, Pavel, Hindiston tabiblaridan Charaka asarlarining arab tiliga tarjimasidan; Oʻrta va Yaqin Sharq mamlakatlaridan yetishib chiqqan Abu Jurayj, Masih ad-Dimashqiy, Ibn Mosavvayh, Sobur ibn Sahl, Sahorbuxt, Abu Bakr ar-Roziy, Abu Sahl alMasihiy kabi olimlarning tibbiy asarlaridan manba sifatida foydalangan.</p>
+                <a href="https://e-library.namdu.uz/50%20%D0%A2%D0%B8%D0%B1%D0%B1%D0%B8%D0%B9%20%D1%84%D0%B0%D0%BD%D0%BB%D0%B0%D1%80/%D0%A2%D0%B8%D0%B1%20%D2%9B%D0%BE%D0%BD%D1%83%D0%BD%D0%BB%D0%B0%D1%80%D0%B8%201.%20%D0%90%D0%B1%D1%83%20%20%D0%90%D0%BB%D0%B8%20%D0%98%D0%B1%D0%BD%20%D0%A1%D0%B8%D0%BD%D0%BE.pdf" >PDF Ochish</a>
+                <a href="https://asaxiy.uz/uz/product/abu-ali-ibn-sino-tib-qonunlari-1-2-3-4-5-kitoblar" target="_blank" class="buy-link">Sotib Olish</a>
+            </article>
+
+        </section>
+    </div>
+</div>
+    </main>
+    <button id="open-dialog-btn">Muloqot oynasi</button>
+    <div id="dialog" title="Feedback" style="display:none;">
+        <p>Agar Fikr va takliflaringiz bo'lsa telegramda ham  t.me/cartel_books ga  yozishingiz mumkin</p>
+        <form id="feedback-form">
+        <textarea id="user-message" name="message" rows="4" style="width:100%;"></textarea>
+        <input type="submit" value="Yuborish">
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 PDF-library. F.Baxtiyor va F.Diyor tomonidan tayyorlangan, mualliflik huquqi himoyalangan.</p>
+    </footer>
+</body>
+</html>
