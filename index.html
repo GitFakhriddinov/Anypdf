@@ -10,22 +10,6 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script>
-        $(document).ready(function(){
-    // Datepicker'ni sozlash
-    $('#filter-date').datepicker({
-        dateFormat: 'yy-mm-dd', // Formatni sozlash
-        onSelect: function(dateText) {
-            // Filtrlash funksiyasi
-            $('.book').hide().filter(function() {
-                return $(this).data('publish-date') === dateText;
-            }).show();
-        }
-    });
-    // Boshlang'ich holatda barcha kitoblarni ko'rsatish
-    $('.book').show();
-}); 
-    </script>
-    <script>
         $(function() {
             var minPrice = 5000, maxPrice = 100000; // Minimal va maksimal narxlar
             $("#slider-range").slider({
@@ -99,10 +83,6 @@
     </header>
     <main>
 
-<div>
-    <label for="filter-date">Chiqarilgan sana bo'yicha filtrlash:</label>
-    <input type="text" id="filter-date" placeholder="YYYY-MM-DD">
-</div>
 <div class="price-slider-container">
     <div class="price-labels">
         <p id="amount">Narx : <span>5000 so'm</span> - <span>100 000 so'm</span></p>
@@ -118,7 +98,7 @@
     <div id="tabs-1">
         
         <section class="books">
-            <article class="book" data-publish-date="2024-03-29" data-price="59900">
+            <article class="book"  data-price="59900">
                 <img src="1984.jpg" alt="1984 Afishasi">
                 <h2>1984 - J.Oruell</h2>
                 <p class="price">Do'konda narxi: 59 900 so'm</p>
@@ -128,7 +108,7 @@
                 <a href="https://asaxiy.uz/uz/product/zhorzh-oruell-1984-yangi-nashr" target="_blank" class="buy-link">Sotib Olish</a>
             </article>
 
-            <article class="book" data-publish-date="2003-02-03" data-price="64900">
+            <article class="book"  data-price="64900">
                 <img src="raqamli qala.jpg" alt="raqamli qala Afishasi">
                 <h2>Raqamli qal'a - D.Braun</h2>
                 <p class="price">Do'konda narxi: 64 900 so'm</p>
@@ -138,7 +118,7 @@
                 <a href="https://asaxiy.uz/product/dfadfadfadfadfadfadfaden-braun-raqamli-qala-18-yumshoq-muqova-bestseller" target="_blank" class="buy-link">Sotib Olish</a>
             </article>
 
-            <article class="book" data-publish-date="2003-11-08" data-price="49000">
+            <article class="book"  data-price="49000">
                 <img src="choqintirgan ota.jpg" alt="cho'qintirgan ota Afishasi">
                 <h2>Cho'qintirgan ota - M.Pyuzo</h2>
                 <p class="price">Do'konda narxi: 49 000 so'm</p>
@@ -148,7 +128,7 @@
                 <a href="https://asaxiy.uz/uz/product/chuqintirgan-ota-yaa" target="_blank" class="buy-link">Sotib Olish</a>
             </article>
 
-            <article class="book" data-publish-date="2001-09-11" data-price="39000">
+            <article class="book"  data-price="39000">
                 <img src="yolgizlikning yuz yili.jpg" alt="yolgizlikning yuz yiliAfishasi">
                 <h2>Yolg'izlikning yuz yili - G.G.Markes</h2>
                 <p class="price">Do'konda narxi: 39 000 so'm</p>
@@ -161,7 +141,7 @@
     </div>
     <div id="tabs-2">
         <section class="books">
-            <article class="book" data-publish-date="2024-03-29" data-price="59900">
+            <article class="book"  data-price="59900">
                 <img src="1984.jpg" alt="1984 Afishasi">
                 <h2>1984 - J.Oruell</h2>
                 <p class="price">Do'konda narxi: 59 900 so'm</p>
@@ -171,7 +151,7 @@
                 <a href="https://asaxiy.uz/uz/product/zhorzh-oruell-1984-yangi-nashr" target="_blank" class="buy-link">Sotib Olish</a>
             </article>
 
-            <article class="book" data-publish-date="2003-02-03" data-price="64900">
+            <article class="book"  data-price="64900">
                 <img src="raqamli qala.jpg" alt="raqamli qala Afishasi">
                 <h2>Raqamli qal'a - D.Braun</h2>
                 <p class="price">Do'konda narxi: 64 900 so'm</p>
@@ -181,7 +161,7 @@
                 <a href="https://asaxiy.uz/product/dfadfadfadfadfadfadfaden-braun-raqamli-qala-18-yumshoq-muqova-bestseller" target="_blank" class="buy-link">Sotib Olish</a>
             </article>
             
-            <article class="book" data-publish-date="2024-01-02" data-price="25000">
+            <article class="book"  data-price="25000">
                 <img src="vavilonlik.jpg" alt="Vavilonlik eng boy odam yili Afishasi">
                 <h2>Vavilonlik eng boy odam - J.S.Kleyson</h2>
                 <p class="price">Do'konda narxi: 25 000 so'm</p>
@@ -191,7 +171,7 @@
                 <a href="https://asaxiy.uz/uz/product/zhorzh-samuel-klejson-vavilonlik-eng-boj-odam" target="_blank" class="buy-link">Sotib Olish</a>
             </article>
 
-            <article class="book" data-publish-date="2003-11-08" data-price="49000">
+            <article class="book"  data-price="49000">
                 <img src="choqintirgan ota.jpg" alt="cho'qintirgan ota Afishasi">
                 <h2>Cho'qintirgan ota - M.Pyuzo</h2>
                 <p class="price">Do'konda narxi: 49 000 so'm</p>
@@ -201,7 +181,7 @@
                 <a href="https://asaxiy.uz/uz/product/chuqintirgan-ota-yaa" target="_blank" class="buy-link">Sotib Olish</a>
             </article>
 
-            <article class="book" data-publish-date="2001-09-11" data-price="39000">
+            <article class="book"  data-price="39000">
                 <img src="yolgizlikning yuz yili.jpg" alt="yolgizlikning yuz yiliAfishasi">
                 <h2>Yolg'izlikning yuz yili - G.G.Markes</h2>
                 <p class="price">Do'konda narxi: 39 000 so'm</p>
@@ -216,7 +196,7 @@
     </div>
     <div id="tabs-3">
         <section class="books">
-            <article class="book" data-publish-date="2023-03-13" data-price="89000">
+            <article class="book"  data-price="89000">
                 <img src="tib qonunlari.jpg" alt="tib qonunlari Afishasi">
                 <h2>Tib qonunlari - Ibn Sino</h2>
                 <p class="price">Do'konda narxi: 89 000 so'm</p>
@@ -240,7 +220,7 @@
     </div>
 
     <footer>
-        <p>© 2024 PDF-library. F.Baxtiyor va F.Diyor tomonidan tayyorlangan, mualliflik huquqi himoyalangan.</p>
+        <p>© 2024 PDF-library. Faxriddinovlar tomonidan tayyorlangan, mualliflik huquqi himoyalangan.</p>
     </footer>
 </body>
 </html>

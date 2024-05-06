@@ -86,64 +86,7 @@ footer {
     padding: 10px 0;
     margin-top: 20px;
 }
-/* Datepicker Umumiy Stil */
-.ui-datepicker {
-    width: auto; /* Datepicker kengligi */
-    background: #ffffff; /* Oq fon */
-    border: 1px solid #aaa; /* Chegaraning rangi */
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soyani qo'shish */
-}
 
-/* Datepicker Sarlavhasi */
-.ui-datepicker .ui-datepicker-header {
-    background-color: #005f73; /* Sarlavha fonining rangi */
-    color: #ffffff; /* Sarlavha matnining rangi */
-    border-bottom: 1px solid #005f73; /* Chegaraning rangi */
-    border-radius: 5px;
-    font-weight: bold; /* Sarlavha matnining qalinligi */
-    line-height: 1.8em; /* Chiziq balandligi */
-}
-
-/* O'tgan va Kelajakdagi Kunlar */
-.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
-    cursor: pointer; /* Kursor ko'rinishi */
-}
-
-/* Hafta Kunlari */
-.ui-datepicker th {
-    color: #555555; /* Hafta kunlarining matn rangi */
-    padding: 5px 0; /* Yuqori va pastki padding */
-    font-weight: normal; /* Matn qalinligi */
-}
-
-/* Kunlar */
-.ui-datepicker td {
-    padding: 5px; /* Padding atrofida */
-}
-
-/* Bugungi Kun */
-.ui-datepicker .ui-datepicker-today {
-    background-color: #f0e68c; /* Bugungi kun uchun fon rangi */
-}
-
-/* Tanlangan Kun */
-.ui-datepicker .ui-state-active, .ui-datepicker .ui-state-highlight {
-    background-color: #66cc99; /* Tanlangan kun fonining rangi */
-    color: #ffffff; /* Tanlangan kun matnining rangi */
-}
-
-/* Kunlar ustidan kursorni olib o'tganda */
-.ui-datepicker td:hover {
-    background-color: #f0f0f0; /* Fon rangi */
-    cursor: pointer; /* Kursor ko'rinishi */
-}
-
-/* Disabllangan kunlar */
-.ui-datepicker .ui-state-disabled {
-    color: #cccccc; /* Matn rangi */
-    background-color: #f9f9f9; /* Fon rangi */
-}
 /* Dialog Umumiy Stili */
 .ui-dialog {
     border: 1px solid #007bff; /* Chegara rangi */
