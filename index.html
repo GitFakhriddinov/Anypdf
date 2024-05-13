@@ -80,6 +80,18 @@
 <body>
     <header>
         <h1>PDF-library | Onlayn Kutubxona</h1>
+        <?php if ($loggedin): ?>
+            <!-- Foydalanuvchi tizimga kirgan -->
+            <div class="account-settings">
+                <a href="/profile.php"><img src="account-icon.png" alt="Account Settings"></a>
+            </div>
+        <?php else: ?>
+            <!-- Foydalanuvchi tizimga kirmagan -->
+            <div class="auth-buttons">
+                <a href="signin.html">Kirish</a>
+                <a href="signup.html">Ro'yhatdan o'tish</a>
+            </div>
+        <?php endif; ?>
     </header>
     <main>
 
